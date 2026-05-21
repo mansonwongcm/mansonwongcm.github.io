@@ -266,12 +266,13 @@
                 <div class="item-meta" style="font-size: 0.85rem; color: #64748b;">UBC | 2020 - 2023</div>
              </div>
     
-        </div>
-        </section>
+        <!-- This opens or handles items from your previous section. Keep it clean without stray closing divs -->
+        </div> 
+    </section>
 
-        <!-- Extras-->
-        <section id="life beyond the lab">
-            <h2>Life Beyond the Lab</h2>
+    <!-- Extras Section: Now correctly inside the main container card -->
+    <section id="life-beyond-the-lab">
+        <h2>Life Beyond the Lab</h2>
 
             <div class="item" style="margin-bottom: 20px;">
                 <div class="item-title" style="color: #0f172a; font-weight: 600;">Executive Committee Officer</div>
@@ -297,14 +298,14 @@
                 <div class="item-title" style="color: #0f172a; font-weight: 600;">Competitive Triathlete / Aquathlete</div>
                 <div class="item-meta" style="font-size: 0.85rem; color: #64748b;">The National Development Squad | 2017 - 2018</div>
             </div>
-        </section>
-        
-            <!-- Add the text line here (before the last closing div) -->
-            <p class="last-updated">Last updated: <span id="update-date"></span></p>
-        </div>
+    </section>
     
-        <!-- Add the script here (before the closing body tag) -->
-        <script>
+    <!-- This line stays right before the container card ends -->
+    <p class="last-updated">Last updated: <span id="update-date"></span></p>
+</div> <!-- This is the true final closing div of your container card -->
+
+<!-- The script stays right here before the closing body tag -->
+<script>
             window.addEventListener('DOMContentLoaded', () => {
                 const targetElement = document.getElementById('update-date');
                 if (targetElement) {
