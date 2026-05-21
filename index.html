@@ -299,27 +299,6 @@
                 <div class="item-meta" style="font-size: 0.85rem; color: #64748b;">The National Development Squad | 2017 - 2018</div>
             </div>
     </section>
-    
-    <!-- This line stays right before the container card ends -->
-    <p class="last-updated">Last updated: <span id="update-date"></span></p>
-</div> <!-- This is the true final closing div of your container card -->
-
-<!-- The script stays right here before the closing body tag -->
-<script>
-            window.addEventListener('DOMContentLoaded', () => {
-                const targetElement = document.getElementById('update-date');
-                if (targetElement) {
-                    const lastMod = new Date(document.lastModified);
-                    const options = { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric', 
-                        timeZone: 'Asia/Hong_Kong' 
-                    };
-                    targetElement.textContent = lastMod.toLocaleDateString('en-US', options);
-                }
-            });
-        </script>
 </body>
 </html>
 
