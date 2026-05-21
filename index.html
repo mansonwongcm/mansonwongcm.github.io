@@ -264,32 +264,31 @@
             <div class="item" style="margin-bottom: 20px;">
                 <div class="item-title" style="color: #0f172a; font-weight: 600;">Dean’s Scholar (formerly Dean’s List)</div>
                 <div class="item-meta" style="font-size: 0.85rem; color: #64748b;">UBC | 2020 - 2023</div>
-            </div>
+             </div>
 
         </section>
-    </div>
+        
+            <!-- Add the text line here (before the last closing div) -->
+            <p class="last-updated">Last updated: <span id="update-date"></span></p>
+        </div>
     
-    <script>
-        // Waits for the page to load completely before running
-        window.addEventListener('DOMContentLoaded', () => {
-            const targetElement = document.getElementById('update-date');
-            
-            // Double checks if the HTML element actually exists on your page
-            if (targetElement) {
-                const lastMod = new Date(document.lastModified);
-                const options = { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric',
-                    timeZone: 'Asia/Hong_Kong' 
-                };
-                targetElement.textContent = lastMod.toLocaleDateString('en-US', options);
-            } else {
-                console.error("Error: Could not find an HTML element with id='update-date'");
-            }
-        });
-    </script>
-
+        <!-- Add the script here (before the closing body tag) -->
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                const targetElement = document.getElementById('update-date');
+                if (targetElement) {
+                    const lastMod = new Date(document.lastModified);
+                    const options = { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric', 
+                        timeZone: 'Asia/Hong_Kong' 
+                    };
+                    targetElement.textContent = lastMod.toLocaleDateString('en-US', options);
+                }
+            });
+        </script>
 </body>
 </html>
+
 
