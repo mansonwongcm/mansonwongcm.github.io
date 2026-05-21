@@ -270,16 +270,26 @@
     </div>
     
     <script>
-        // Fetches last modified date and forces Hong Kong Time zone formatting
-        const lastMod = new Date(document.lastModified);
-        const options = { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            timeZone: 'Asia/Hong_Kong' 
-        };
-        document.getElementById('update-date').textContent = lastMod.toLocaleDateString('en-US', options);
+        // Waits for the page to load completely before running
+        window.addEventListener('DOMContentLoaded', () => {
+            const targetElement = document.getElementById('update-date');
+            
+            // Double checks if the HTML element actually exists on your page
+            if (targetElement) {
+                const lastMod = new Date(document.lastModified);
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    timeZone: 'Asia/Hong_Kong' 
+                };
+                targetElement.textContent = lastMod.toLocaleDateString('en-US', options);
+            } else {
+                console.error("Error: Could not find an HTML element with id='update-date'");
+            }
+        });
     </script>
+
 </body>
 </html>
 
