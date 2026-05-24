@@ -26,7 +26,7 @@
 
         body {
             background-color: #f8fafc;
-            color: #000000; /* Force general text to pure black */
+            color: #000000;
             line-height: 1.7;
             padding: 40px 20px;
         }
@@ -49,13 +49,13 @@
 
         .profile-header h1 {
             font-size: 2.5rem;
-            color: #000000; /* Changed to pure black */
+            color: #000000;
             margin-bottom: 8px;
         }
 
         .profile-header p {
             font-size: 1.1rem;
-            color: #000000; /* Changed to pure black */
+            color: #000000;
             font-weight: 500;
         }
 
@@ -66,7 +66,7 @@
 
         h2 {
             font-size: 1.4rem;
-            color: #000000; /* Changed to pure black */
+            color: #000000;
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 6px;
             margin-bottom: 16px;
@@ -75,36 +75,36 @@
 
         /* Item Lists Styling */
         .item {
-            margin-bottom: 16px;
+            margin-bottom: 20px; /* Changed to exactly 20px */
+        }
+
+        /* Base size rule for all list item components */
+        .item-title, .item-meta, .item-desc {
+            font-size: 1rem; /* Forces matching sizes across all three elements */
+            color: #000000;
         }
 
         .item-title {
-            font-weight: 600;
-            color: #000000; /* Changed to pure black */
+            font-weight: bold
         }
 
         .item-meta {
-            font-size: 0.9rem;
-            color: #000000; /* Changed from gray to pure black */
             margin-bottom: 4px;
         }
-
         .item-desc {
-            color: #000000; /* Changed from gray to pure black */
-            font-size: 0.95rem;
+            margin-bottom: 8px;
         }
 
-        /* Global rule for all embedded links (Professors, Papers, GitHub docs) */
+        /* Links & Buttons */
         a {
-            color: #2563eb; /* Keeps links vibrant blue */
-            text-decoration: underline; /* Makes it obvious they are clickable */
+            color: #2563eb;
+            text-decoration: underline;
         }
 
         a:hover {
-            color: #1d4ed8; /* Darkens the blue slightly when hovering */
+            color: #1d4ed8;
         }
 
-        /* Contact Links & Buttons at the bottom */
         .contact-links {
             text-align: center;
             margin-top: 40px;
@@ -112,7 +112,6 @@
             border-top: 1px solid #e2e8f0;
         }
 
-        /* Removes underline only for bottom buttons to keep them looking clean */
         .contact-links .btn {
             text-decoration: none; 
         }
@@ -138,7 +137,7 @@
 
         .btn-secondary {
             background: #f1f5f9;
-            color: #000000; /* Changed to pure black */
+            color: #000000;
         }
 
         .btn-secondary:hover {
@@ -166,16 +165,16 @@
             <h2>Education</h2>
             
             <!-- Ph.D. / M.A. Block -->
-            <div class="item" style="margin-bottom: 25px">
-                <div class="item-title" style="font-weight: bold;">Ph.D. / M.A.</div>
-                <div class="item-meta" style="color: black;">CUHK | 2024 - 2030</div>
+            <div class="item">
+                <div class="item-title">Ph.D. / M.A.</div>
+                <div class="item-meta">CUHK | 2024 - 2030</div>
                 
-                <div class="item-desc" style="margin-top: 8px; color: #1e293b;">Ph.D.</div>
+                <div class="item-desc">Ph.D.</div>
                 <ul style="padding-left: 20px; color: #475569; margin-bottom: 12px; list-style-type: disc;">
                     <li>(Starting in August 2026)</li>
                 </ul>
         
-                <div class="item-desc" style="margin-top: 8px; color: #1e293b;">M.A. with Distinction</div>
+                <div class="item-desc">M.A. with Distinction</div>
                 <ul style="padding-left: 20px; color: #475569; list-style-type: disc;">
                     <li><strong>Thesis:</strong> "Phonetic Transfer of Code-switching in Hong Kong Cantonese-English Bilinguals"</li>
                     <li><strong>Supervisor:</strong> <a href="https://ling.cuhk.edu.hk/people/peggy/" target="_blank">Prof. MOK Peggy Pik Ki</a></li>
@@ -183,9 +182,9 @@
             </div>
         
             <!-- B.A. Block -->
-                <div class="item" style="margin-bottom: 25px">
-                    <div class="item-title" style="font-weight: bold;">B.A. Honours with High Distinction</div>
-                <div class="item-meta" style="color: black;">UBC | 2019 - 2023</div>
+                <div class="item">
+                    <div class="item-title">B.A. Honours with High Distinction</div>
+                <div class="item-meta">UBC | 2019 - 2023</div>
                 
                 <ul style="padding-left: 20px; color: #475569; margin-top: 8px; list-style-type: disc;">
                     <li><strong>Honours Thesis:</strong> "Vowel Duration Variation in Hong Kong Cantonese"</li>
@@ -199,25 +198,25 @@
             <h2>Publications</h2>
               <h3>Conference Abstracts & Presentations</h3>  
                 <ol style="padding-left: 20px; margin: 0;">
-                    <li class="item" style="margin-bottom: 20px;">
+                    <li class="item">
                         <strong>Wong, M. C. M.</strong>, Chen, X., Hong, Y., Tian, Y., Cao, G. W., & Mok, P. P. K. (2026, September 14). The impact of initial phonetic distance on L2 speech accommodation in Human- and AI-directed speech [Poster presentation]. ISAPh2026, Hiroshima, Japan.
                     </li>
-                    <li class="item" style="margin-bottom: 20px;">
+                    <li class="item">
                         <strong>Wong, M. C. M.</strong>, Cao, G. W., & Mok, P. P. K. (2026, June 29). Phonetic transfer of code-switching in a Hong Kong trilingual corpus [Poster presentation]. CorpusPhon 2, LabPhon 20, Montréal, Québec, Canada.
                     </li>
-                    <li class="item" style="margin-bottom: 20px;">
+                    <li class="item">
                         <strong>Wong, M. C. M.</strong>, Hong, Y., & Mok, P. P. K. (2026, June 25). How well can MFA detect sound change in large-scale sociophonetic research? [Oral presentation]. CSAA, LabPhon 20, Montréal, Québec, Canada.
                     </li>
-                    <li class="item" style="margin-bottom: 20px;">
+                    <li class="item">
                         <strong>Wong, M. C. M.</strong>, Hong, Y., Cao, G. W., & Mok, P. P. K. (2026, May 22). Language attitudes and individual sound change features: Insights from phonetic accommodation by elderly speakers of Hong Kong Cantonese [Poster presentation]. HISPhonCog, Seoul, South Korea.
                         <a href="Abstract_Wongetal_2026-HISPhonCog.pdf">[Abstract]</a>        
                         <a href="Poster_Wongetal_2026-HISPhonCog.pdf">[Poster]</a>
                     </li>
-                    <li class="item" style="margin-bottom: 20px;">
+                    <li class="item">
                         <strong>Wong, M. C. M.</strong>, & Chen, J. (2025, December 6). The acquisition of Cantonese sentence-final particles in a bimodal bilingual child: A preliminary exploratory case study [Oral presentation]. 2025 Annual Research Forum of The Linguistic Society of Hong Kong, Kowloon Tong, Hong Kong.
                         <a href="Abstract_Wong&Chen_2025-ARF.pdf">[Abstract]</a>
                     </li>
-                    <li class="item" style="margin-bottom: 20px;">
+                    <li class="item">
                         <strong>Wong, M. C. M.</strong>, & Sóskuthy, M. (2025, October 28). Vowel duration variation in Hong Kong Cantonese [Oral presentation]. International Conference on Yue Dialects, Rua de Luís Gonzaga Gomes, Macao. 
                         <a href="Abstract_Wong&Soskuthy_2025-29Yue.pdf">[Abstract]</a>
                     </li>
@@ -228,18 +227,18 @@
         <section id="awards">
           <h2>Awards</h2>
             <ol style="padding-left: 20px; margin: 0;">
-            <li class="item" style="margin-bottom: 20px;">
-                <div class="item-title" style="font-weight: bold;">Hong Kong PhD Fellowship Scheme (HKPFS)</div>
-                <div class="item-meta" style="color: black;">RGC, UGC, HK | 2026</div>
+            <li class="item"">
+                <div class="item-title">Hong Kong PhD Fellowship Scheme (HKPFS)</div>
+                <div class="item-meta">RGC, UGC, HK | 2026</div>
                   <ul style="padding-left: 20px; color: #475569; list-style-type: disc;">
                     <li><strong>Stipend:</strong> HKD 1,020,400</li>
                     <li><strong>Conference and research-related travel allowance:</strong> HKD 43,200</li>
                   </ul>
             </li>
 
-            <li class="item" style="margin-bottom: 20px;">
-                <div class="item-title" style="font-weight: bold;">Vice-Chancellor HKPFS Scholarship</div>
-                <div class="item-meta" style="color: black;">CUHK | 2026</div>
+            <li class="item">
+                <div class="item-title">Vice-Chancellor HKPFS Scholarship</div>
+                <div class="item-meta">CUHK | 2026</div>
                   <ul style="padding-left: 20px; color: #475569; list-style-type: disc;">
                     <li><strong>Stipend:</strong> HKD 340,800</li>
                     <li><strong>Tuition Fee Waiver: </strong>HKD 195,000</li>
@@ -248,46 +247,42 @@
                   </ul>
             </li>
 
-            <li class="item" style="margin-bottom: 20px;">
-                <div class="item-title" style="font-weight: bold;">Vice-Chancellor’s PhD Scholarship</div>
-                <div class="item-meta" style="color: black;">CUHK | 2026</div>
-                <div class="item-desc" style="color: #475569; font-size: 0.95rem; margin: 4px 0 2px 0; font-style: italic;">
-                    (Offered but declined due to funding exclusivity)
-                </div>
+            <li class="item">
+                <div class="item-title">Vice-Chancellor’s PhD Scholarship</div>
+                <div class="item-meta">CUHK | 2026</div>
+                <div class="item-desc"(Offered but declined due to funding exclusivity)</div>
             </li>
           
             <li class="item" style="margin-bottom: 20px;">
-                <div class="item-title" style="font-weight: bold;">Postgraduate Studentships (Ph.D.)</div>
-                <div class="item-meta" style="color: black;">CUHK | 2026</div>
-                <div class="item-desc" style="color: #475569; font-size: 0.95rem; margin: 4px 0 2px 0; font-style: italic;">
-                    (Offered but declined due to funding exclusivity)
-                </div>
+                <div class="item-title">Postgraduate Studentships (Ph.D.)</div>
+                <div class="item-meta">CUHK | 2026</div>
+                <div class="item-desc"(Offered but declined due to funding exclusivity)</div>
             </li>
 
             <li class="item" style="margin-bottom: 20px;">
-                <div class="item-title" style="font-weight: bold;">Best Thesis Award</div>
-                <div class="item-meta" style="color: black;">CUHK | 2025</div>
+                <div class="item-title">Best Thesis Award</div>
+                <div class="item-meta">CUHK | 2025</div>
                   <ul style="padding-left: 20px; color: #475569; list-style-type: disc;">
                     <li><strong>Sole annual recipient:</strong> HKD 18,000</li>
                   </ul>
             </li>
             
             <li class="item" style="margin-bottom: 20px;">
-                <div class="item-title" style="font-weight: bold;">Outstanding Graduates Award</div>
-                <div class="item-meta" style="color: black;">CUHK | 2025</div>
+                <div class="item-title">Outstanding Graduates Award</div>
+                <div class="item-meta">CUHK | 2025</div>
                   <ul style="padding-left: 20px; color: #475569; list-style-type: disc;">
                     <li><strong>Ranked 1st within the graduating cohort:</strong> HKD 15,000</li>
                   </ul>
             </li>
             
-            <li class="item" style="margin-bottom: 20px;">
-              <div class="item-title" style="font-weight: bold;">Dean’s List</div>
-              <div class="item-meta" style="color: black;">CUHK | 2025</div>
+            <li class="item">
+              <div class="item-title">Dean’s List</div>
+              <div class="item-meta">CUHK | 2025</div>
             </li>
             
-            <li class="item" style="margin-bottom: 20px;">
-                <div class="item-title" style="font-weight: bold;">Dean’s Scholar (formerly Dean’s List)</div>
-              <div class="item-meta" style="color: black;">UBC | 2020 - 2023</div>
+            <li class="item">
+                <div class="item-title">Dean’s Scholar (formerly Dean’s List)</div>
+              <div class="item-meta">UBC | 2020 - 2023</div>
              </li>
            </ol>   
         </section>
@@ -297,37 +292,37 @@
           <h2>Life Beyond the Lab</h2>
            <ol style="padding-left: 20px; margin: 0;">  
              
-            <li class="item" style="margin-bottom: 20px;">
-                <div class="item-title" style="font-weight: bold;">
+            <li class="item">
+                <div class="item-title">
                   Executive Committee Officer <a href="https://www.instagram.com/jcticaa?igsh=MWdtODQ2eGN5bjJ5ZQ==" target="_blank" style="margin-left: 10px; font-size: 0.9em; color: #3b82f6; text-decoration: none; font-weight: 400;">[Link]</a>
                 </div>
-                <div class="item-meta" style="color: black;">Alumni Association, JCTIC | 2024 - Present </div>
+                <div class="item-meta">Alumni Association, JCTIC | 2024 - Present </div>
             </li>
 
-            <li class="item" style="margin-bottom: 20px;">
-                <div class="item-title" style="font-weight: bold;">
+            <li class="item">
+                <div class="item-title">
                   Chairperson; Vice Chairperson (2023 - 2025) <a href="https://www.instagram.com/moslingliangpsalumni?igsh=Mm9kNGV1OG4yMjZv" target="_blank" style="margin-left: 10px; font-size: 0.9em; color: #3b82f6; text-decoration: none; font-weight: 400;">[Link]</a>
                 </div>
-                <div class="item-meta" style="color: black;">Alumni Association, MOSLLPS | 2023 - Present </div>
+                <div class="item-meta">Alumni Association, MOSLLPS | 2023 - Present </div>
             </li>
 
-            <li class="item" style="margin-bottom: 20px;">
-                <div class="item-title" style="font-weight: bold;">
+            <li class="item">
+                <div class="item-title">
                   Member <a href="https://www.savecantonese.org/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR_UExleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAafJxPYb25IB6d3XsSs3Fc0rReBpwkiy0aMA7Idckal49-dbM1YdUbsoQWGfIA_aem_HrrmKXMqCqrj0qzBc7N_eA" target="_blank" style="margin-left: 10px; font-size: 0.9em; color: #3b82f6; text-decoration: none; font-weight: 400;">[Link]</a>
                 </div>
-                <div class="item-meta" style="color: black;">Save Cantonese | 2022 - Present </div>
+                <div class="item-meta">Save Cantonese | 2022 - Present </div>
            </li>
 
-          <li class="item" style="margin-bottom: 20px;">
-              <div class="item-title" style="font-weight: bold;">
+          <li class="item">
+              <div class="item-title">
                 Content Creator <a href="https://www.instagram.com/lang_dev101?igsh=MWJ4bGRwbHlidXljeA==" target="_blank" style="margin-left: 10px; font-size: 0.9em; color: #3b82f6; text-decoration: none; font-weight: 400;">[Link]</a>
               </div>
-              <div class="item-meta" style="color: black;">@LANG_DEV101 | 2022 - Present</div>
+              <div class="item-meta">@LANG_DEV101 | 2022 - Present</div>
           </li>
 
-          <li class="item" style="margin-bottom: 20px;">
-              <div class="item-title" style="font-weight: bold;">Competitive Triathlete / Aquathlete</div>
-              <div class="item-meta" style="color: black;">The National Development Squad | 2017 - 2018</div>
+          <li class="item">
+              <div class="item-title">Competitive Triathlete / Aquathlete</div>
+              <div class="item-meta">The National Development Squad | 2017 - 2018</div>
           </li>
          </ol>
           
