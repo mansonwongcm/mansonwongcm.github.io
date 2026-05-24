@@ -73,11 +73,15 @@
             margin-bottom: 16px;
             font-weight: 600;
         }
-        h2 + * {
-            clear: both;
+        h2::after {
+            content: "";
             display: block;
+            width: 100vw; /* Forces the line to be full screen width */
+            height: 2px;  /* Thickness of the black line */
+            background-color: #000000;
+            margin-top: 16px;    /* Gap between heading and line */
+            margin-bottom: 16px; /* Gap between line and content */
         }
-
         /* Item Lists Styling */
         .item {
             margin-bottom: 20px; /* Changed to exactly 20px */
