@@ -67,21 +67,17 @@
         h2 {
             font-size: 1.4rem;
             color: #ffffff;
-            background-color: #475569;
+            background-color: #475569; /* Change to #000000 if you want pure black */
             display: inline-block;
-            padding: 6px 10px;
+            padding: 4px 8px;
             margin-bottom: 16px;
             font-weight: 600;
+            
+            /* This creates the full-width line directly attached to the block */
+            box-shadow: 0 6px 0 -4px #ffffff, 0 8px 0 -4px #000000;
+            width: 100%;
         }
-        h2::after {
-            content: "";
-            display: block;
-            width: 100vw; /* Forces the line to be full screen width */
-            height: 2px;  /* Thickness of the black line */
-            background-color: #000000;
-            margin-top: 16px;    /* Gap between heading and line */
-            margin-bottom: 16px; /* Gap between line and content */
-        }
+
         /* Item Lists Styling */
         .item {
             margin-bottom: 20px; /* Changed to exactly 20px */
