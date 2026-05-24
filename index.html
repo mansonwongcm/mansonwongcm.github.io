@@ -143,27 +143,6 @@
         .btn-secondary:hover {
             background: #e2e8f0;
         }
-    .profile-header {
-        display: flex !important;       /* Forces items side-by-side */
-        flex-direction: row !important; /* Ensures row layout */
-        align-items: center;            /* Vertically centers the text and image */
-        justify-content: space-between; /* Pushes text left, photo right */
-        gap: 30px;                      /* Creates space between them */
-        max-width: 800px;               /* Limits maximum width */
-        margin: 0 auto;                 /* Centers the header on the page */
-    }
-
-    .profile-info {
-        flex: 1;                        /* Makes text take up left side space */
-        text-align: center;             /* Centers the words internally */
-    }
-
-    .profile-pic {
-        width: 150px !important;        /* Forces the width to be small */
-        height: 150px !important;       /* Forces the height to be small */
-        border-radius: 50%;             /* Makes it a clean circle */
-        object-fit: cover;              /* Prevents distortion */
-    }
     </style>
 
 </head>
@@ -171,16 +150,23 @@
     
     <div class="container">
         <!-- Name & Title -->
-        <header class="profile-header">
-            <h1>Manson WONG 王俊汶</h1>
-            <p>B.A. (UBC), M.A. (CUHK)</p>
-            <p style="color: black;">Research Interests: <em>Phonetics, Languages in Hong Kong</em></p>
-            <a href="mailto:mansonwong@cuhk.edu.hk" class="email">mansonwong@cuhk.edu.hk</a>
-            <nav class="profile-nav" style="margin-top: 10px;">
-            <a href="updates.html" style="text-decoration: none; color: #0066cc; font-weight: 500;">[Latest Updates]</a>
-            </nav>
-          <img src="Portrait_Manson.jpg" class="profile-pic">
-        </header>
+      <header style="display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; max-width: 800px; margin: 0 auto; gap: 40px; padding: 20px 0; width: 100%; box-sizing: border-box;">
+          
+          <!-- Left Side: Text stacking up-to-down, centered internally -->
+          <div style="flex: 1; text-align: center; display: flex !important; flex-direction: column !important; align-items: center !important;">
+              <h1 style="margin: 0 0 10px 0;">Manson WONG 王俊汶</h1>
+              <p style="margin: 0 0 10px 0;">B.A. (UBC), M.A. (CUHK)</p>
+              <p style="color: black; margin: 0 0 10px 0;">Research Interests: <em>Phonetics, Languages in Hong Kong</em></p>
+              <a href="mailto:mansonwong@cuhk.edu.hk" class="email" style="margin-bottom: 10px;">mansonwong@cuhk.edu.hk</a>
+              <nav class="profile-nav" style="margin-top: 5px;">
+                  <a href="updates.html" style="text-decoration: none; color: #0066cc; font-weight: 500;">[Latest Updates]</a>
+              </nav>
+          </div>
+      
+          <!-- Right Side: The Photo -->
+          <img src="Portrait_Manson.jpg" style="width: 150px !important; height: 150px !important; min-width: 150px !important; min-height: 150px !important; border-radius: 50% !important; object-fit: cover !important; display: block !important;">
+      
+      </header>
 
         <!-- Education -->
         <section id="education">
