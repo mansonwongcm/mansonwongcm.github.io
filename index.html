@@ -65,19 +65,21 @@
         }
 
         h2 {
-            border-bottom: 2px solid #000000; /* Full-width black line */
-            padding-bottom: 0px;              /* Sets line right below the box */
-            margin-bottom: 16px;
-            background-color: transparent;    /* White background across the page */
+            border-bottom: 2px solid #000000 !important; /* Full-width black line */
+            padding-bottom: 0px !important;              /* Tight against the box */
+            margin-bottom: 16px !important;
+            background: transparent !important;           /* White/clear background */
+            display: block !important;                    /* Forces full width line */
         }
         
         h2 span {
-            font-size: 1.4rem;
-            color: #ffffff;                   /* White text */
-            background-color: #475569;        /* Grey highlight box */
-            display: inline-block;
-            padding: 6px 10px;
-            font-weight: 600;
+            font-size: 1.4rem !important;
+            color: #ffffff !important;                   /* White text */
+            background-color: #475569 !important;        /* Grey highlight box */
+            display: inline-block !important;            /* Hugs the text width */
+            padding: 6px 10px !important;
+            font-weight: 600 !important;
+            vertical-align: bottom !important;           /* Stops text-baseline gaps */
         }
 
         /* Item Lists Styling */
