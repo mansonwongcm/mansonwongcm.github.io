@@ -65,17 +65,20 @@
         }
 
         h2 {
+            border-bottom: 2px solid #000000; /* Full-width black line */
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            background-color: transparent;   /* Ensures the rest of the bar is white */
+            font-weight: bold;
+        }
+        
+        h2 span {
             font-size: 1.4rem;
             color: #ffffff;
-            background-color: #475569; /* Change to #000000 if you want pure black */
+            background-color: #475569;        /* Grey highlight wraps only the text */
             display: inline-block;
-            padding: 4px 8px;
-            margin-bottom: 16px;
+            padding: 6px 10px;
             font-weight: 600;
-            
-            /* This creates the full-width line directly attached to the block */
-            box-shadow: 0 6px 0 -4px #ffffff, 0 8px 0 -4px #000000;
-            width: 100%;
         }
 
         /* Item Lists Styling */
