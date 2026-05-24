@@ -143,6 +143,27 @@
         .btn-secondary:hover {
             background: #e2e8f0;
         }
+    .profile-header {
+        display: flex !important;       /* Forces items side-by-side */
+        flex-direction: row !important; /* Ensures row layout */
+        align-items: center;            /* Vertically centers the text and image */
+        justify-content: space-between; /* Pushes text left, photo right */
+        gap: 30px;                      /* Creates space between them */
+        max-width: 800px;               /* Limits maximum width */
+        margin: 0 auto;                 /* Centers the header on the page */
+    }
+
+    .profile-info {
+        flex: 1;                        /* Makes text take up left side space */
+        text-align: center;             /* Centers the words internally */
+    }
+
+    .profile-pic {
+        width: 150px !important;        /* Forces the width to be small */
+        height: 150px !important;       /* Forces the height to be small */
+        border-radius: 50%;             /* Makes it a clean circle */
+        object-fit: cover;              /* Prevents distortion */
+    }
     </style>
 
 </head>
