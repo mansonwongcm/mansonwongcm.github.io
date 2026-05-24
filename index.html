@@ -26,7 +26,7 @@
 
         body {
             background-color: #f8fafc;
-            color: #1e293b;
+            color: #000000; /* Force general text to pure black */
             line-height: 1.7;
             padding: 40px 20px;
         }
@@ -49,13 +49,13 @@
 
         .profile-header h1 {
             font-size: 2.5rem;
-            color: #0f172a;
+            color: #000000; /* Changed to pure black */
             margin-bottom: 8px;
         }
 
         .profile-header p {
             font-size: 1.1rem;
-            color: #2563eb;
+            color: #000000; /* Changed to pure black */
             font-weight: 500;
         }
 
@@ -66,7 +66,7 @@
 
         h2 {
             font-size: 1.4rem;
-            color: #0f172a;
+            color: #000000; /* Changed to pure black */
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 6px;
             margin-bottom: 16px;
@@ -80,21 +80,31 @@
 
         .item-title {
             font-weight: 600;
-            color: #1e293b;
+            color: #000000; /* Changed to pure black */
         }
 
         .item-meta {
             font-size: 0.9rem;
-            color: #64748b;
+            color: #000000; /* Changed from gray to pure black */
             margin-bottom: 4px;
         }
 
         .item-desc {
-            color: #475569;
+            color: #000000; /* Changed from gray to pure black */
             font-size: 0.95rem;
         }
 
-        /* Links & Buttons */
+        /* Global rule for all embedded links (Professors, Papers, GitHub docs) */
+        a {
+            color: #2563eb; /* Keeps links vibrant blue */
+            text-decoration: underline; /* Makes it obvious they are clickable */
+        }
+
+        a:hover {
+            color: #1d4ed8; /* Darkens the blue slightly when hovering */
+        }
+
+        /* Contact Links & Buttons at the bottom */
         .contact-links {
             text-align: center;
             margin-top: 40px;
@@ -102,9 +112,13 @@
             border-top: 1px solid #e2e8f0;
         }
 
+        /* Removes underline only for bottom buttons to keep them looking clean */
+        .contact-links .btn {
+            text-decoration: none; 
+        }
+
         .btn {
             display: inline-block;
-            text-decoration: none;
             padding: 8px 18px;
             border-radius: 6px;
             font-size: 0.9rem;
@@ -124,13 +138,14 @@
 
         .btn-secondary {
             background: #f1f5f9;
-            color: #334155;
+            color: #000000; /* Changed to pure black */
         }
 
         .btn-secondary:hover {
             background: #e2e8f0;
         }
     </style>
+
 </head>
 <body>
     
