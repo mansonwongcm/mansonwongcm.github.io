@@ -157,6 +157,51 @@
     border-radius: 8px;    /* Rounded corners to match your container look */
     border: 1px solid #e2e8f0;
     }
+
+    /* Make images look clickable */
+    .photo-grid a {
+    display: block;
+    text-decoration: none;
+    }
+
+    /* The dark background overlay (Hidden by default) */
+    .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Dark transparent backdrop */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    }
+
+    /* Large centered image rules */
+    .lightbox-modal img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    /* Magic Trick: Shows the modal when its ID is targeted/clicked */
+    .lightbox-modal:target {
+    display: flex;
+    }
+
+    /* Quick instructions styling text */
+    .lightbox-hint {
+    position: absolute;
+    bottom: 20px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    background: rgba(0,0,0,0.6);
+    padding: 6px 14px;
+    border-radius: 20px;
+    }    
   </style>
 </head>
 
@@ -183,8 +228,20 @@
            <span style="color: #666; font-size: 0.9rem; display: block; margin-bottom: 15px;">December 2025</span>
            
            <div class="photo-grid">
-               <img src="gallery/Image_2025-ARF_1.jpg" alt="Presentation Slide">
-               <img src="gallery/Image_2025-ARF_2.jpg" alt="Presentation Slide">                    
+               <a href="#2025arf1">
+                   <img src="gallery/Image_2025-ARF_1.jpg" alt="Presentation Slide">
+               </a>
+               <a href="#" id="2025arf1" class="lightbox-modal">
+                   <img src="gallery/Image_2025-ARF_1.jpg" alt="Presentation Slide">
+                   <div class="lightbox-hint">Click anywhere to close</div>
+               </a>
+               <a href="#2025arf2">
+                   <img src="gallery/Image_2025-ARF_2.jpg" alt="Presentation Slide">
+               </a>
+               <a href="#" id="2025arf2" class="lightbox-modal">
+                   <img src="gallery/Image_2025-ARF_2.jpg" alt="Presentation Slide">
+                   <div class="lightbox-hint">Click anywhere to close</div>
+               </a>                    
            </div>
        </div>
 
@@ -193,9 +250,27 @@
            <span style="color: #666; font-size: 0.9rem; display: block; margin-bottom: 15px;">October 2025</span>
            
            <div class="photo-grid">
-               <img src="gallery/Image_2025-29Yue_1.jpg" alt="Presentation Slide">
-               <img src="gallery/Image_2025-29Yue_2.jpg" alt="Presentation Slide">
-               <img src="gallery/Image_2025-29Yue_3.jpg" alt="Presentation Slide">            
+               <a href="#29yue1">
+                   <img src="gallery/Image_2025-29Yue_1.jpg" alt="Presentation Slide">
+               </a>
+               <a href="#" id="29yue1" class="lightbox-modal">
+                   <img src="gallery/Image_2025-29Yue_1.jpg" alt="Presentation Slide">
+                   <div class="lightbox-hint">Click anywhere to close</div>
+               </a>
+               <a href="#29yue2">
+                   <img src="gallery/Image_2025-29Yue_2.jpg" alt="Presentation Slide">
+               </a>
+               <a href="#" id="29yue2" class="lightbox-modal">
+                   <img src="gallery/Image_2025-29Yue_2.jpg" alt="Presentation Slide">
+                   <div class="lightbox-hint">Click anywhere to close</div>
+               </a>
+               <a href="#29yue3">
+                   <img src="gallery/Image_2025-29Yue_3.jpg" alt="Presentation Slide">
+               </a>
+               <a href="#" id="29yue3" class="lightbox-modal">
+                   <img src="gallery/Image_2025-29Yue_3.jpg" alt="Presentation Slide">
+                   <div class="lightbox-hint">Click anywhere to close</div>
+               </a>            
            </div>
        </div>
 
