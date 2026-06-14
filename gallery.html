@@ -129,15 +129,33 @@
     background: #e2e8f0;
     }
     .event-section {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    }
+    .event-section h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000;
     }
     .event-date {
-    color: #666;
     font-size: 0.9rem;
+    color: #64748b; /* Soft gray color matching slate styling */
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    }
+    /* This arranges photos side-by-side inside your 750px card */
+    .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    }
+    /* This rule shrinks your oversized photos and keeps them matching sizes */
+    .photo-grid img {
+    width: 100%;
+    height: 180px;         /* Uniform square-ish heights */
+    object-fit: cover;     /* Crops image neatly without squishing it */
+    border-radius: 8px;    /* Rounded corners to match your container look */
+    border: 1px solid #e2e8f0;
     }
   </style>
 </head>
