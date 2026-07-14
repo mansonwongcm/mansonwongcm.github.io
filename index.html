@@ -148,7 +148,6 @@
         <h1>王俊汶</h1>
         <p>B.A. (UBC), M.A. (CUHK)</p>
         <p>Research Interests: <em>phonetics, sociolinguistics, code-switching, multilingualism, sound change, languages in Hong Kong</em></p>
-        <a href="mailto:mansonwong@cuhk.edu.hk" class="email" style="margin-bottom: 10px;">mansonwong@cuhk.edu.hk</a>
       </div>
       <img src="Portrait_Manson.jpg" style="width: 200px !important; height: 200px !important; min-width: 200px !important; min-height: 200px !important; border-radius: 50% !important; object-fit: cover !important; display: block !important;">
     </header>
@@ -156,7 +155,11 @@
     <main style="padding: 20px; max-width: 800px; margin: auto;">
       <h2>About Me</h2>
       <p>
-        Hi there! I'm Manson. This site features my (academic) updates, interests, and ongoing/past projects. 
+        Hi there! I'm Manson. I am an incoming PhD student in Linguistics at The Chinese University of Hong Kong (CUHK), specializing in phonetics under the supervision of Prof. Peggy Mok. Currently, I work as a research assistant in her lab, focusing on AI-directed speech register, phonetic accommodation in Human-Machine Interaction (HMI) in Hong Kong Cantonese and English, and sound change in Hong Kong Cantonese. This site features my academic updates, interests, and projects.
+      </p>
+      
+      <p>
+        Whether you want to discuss phonetics, languages in Hong Kong, or ask for an eye on your (Cantonese) stimuli (I love creating stimuli, by the way), please feel free to reach out via <a href="mailto:mansonwong@cuhk.edu.hk" class="email" style="margin-bottom: 10px;">mansonwong@cuhk.edu.hk</a>! Cheers!
       </p>
       
       <p>
@@ -164,9 +167,9 @@
       </p>
 
       <ul style="padding-left: 20px; margin-bottom: 16px; line-height: 1.6;">
-        <li style="margin-bottom: 8px;">I haven't eaten a single piece of candy since I was 5 years old.</li>
-        <li style="margin-bottom: 8px;">I was a member of the National Development Squad (Triathlon) in high school.</li>
-        <li style="margin-bottom: 8px;">My name is a literal compound noun: my dad is "Man" and I am his "son."</li>
+        <li style="margin-bottom: 8px;">I haven't eaten a single piece of candy since I was 5 years old</li>
+        <li style="margin-bottom: 8px;">I was a member of the National Development Squad (Triathlon) in high school</li>
+        <li style="margin-bottom: 8px;">My name is a literal compound noun: my dad is "Man" and I am his "son"</li>
       </ul>
 
       <p>
@@ -175,9 +178,15 @@
     </main>
 
     <p>Last updated: <span id="last-updated">Loading...</span></p>
-    
+
     <script>
-      document.getElementById('last-updated').textContent = document.lastModified;
+      const modificationDate = new Date(document.lastModified);
+
+      const year = modificationDate.getFullYear();
+
+      const month = String(modificationDate.getMonth() + 1).padStart(2, '0');
+      
+      document.getElementById('last-updated').textContent = `${year}-${month}`;
     </script>
     
     <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fmansonwongcm.github.io%2F&label=&icon=suit-heart-fill&color=%233dd5f3&message=&style=flat&tz=Hongkong">
