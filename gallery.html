@@ -217,34 +217,98 @@
 
     </nav>
 </header>
- 
-  <div class="container">
-   <section id="Gallery">
-       
-       <h2 style="text-align: center;">Gallery</h2>
 
-        <div style="margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
-           <h3>ARF</h3>
-           <span style="color: #666; font-size: 0.9rem; display: block; margin-bottom: 15px;">December 2025</span>
-           
-           <div class="photo-grid">
-               <img src="gallery/Image_2025-ARF_1.jpg" alt="Presentation Slide">
-               <img src="gallery/Image_2025-ARF_2.jpg" alt="Presentation Slide">                    
-           </div>
-        </div>
+    <div class="container">
+      <section id="Gallery">
+          
+          <h2 style="text-align: center;">Gallery</h2>
 
-        <div style="margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
-           <h3>29Yue</h3>
-           <span style="color: #666; font-size: 0.9rem; display: block; margin-bottom: 15px;">October 2025</span>
-           
-           <div class="photo-grid">
-               <img src="gallery/Image_2025-29Yue_1.jpg" alt="Presentation Slide">
-               <img src="gallery/Image_2025-29Yue_2.jpg" alt="Presentation Slide">
-               <img src="gallery/Image_2025-29Yue_3.jpg" alt="Presentation Slide">            
-           </div>
-        </div>
+            <div style="margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+              <h3>ARF</h3>
+              <span style="color: #666; font-size: 0.9rem; display: block; margin-bottom: 15px;">December 2025</span>
+              
+              <div class="photo-grid">
+                  <!-- Added cursor style to show it is clickable -->
+                  <img src="gallery/Image_2025-ARF_1.jpg" alt="Presentation Slide" style="cursor: pointer;" onclick="openLightbox(this)">
+                  <img src="gallery/Image_2025-ARF_2.jpg" alt="Presentation Slide" style="cursor: pointer;" onclick="openLightbox(this)">                    
+              </div>
+            </div>
 
-  </section>
+            <div style="margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+              <h3>29Yue</h3>
+              <span style="color: #666; font-size: 0.9rem; display: block; margin-bottom: 15px;">October 2025</span>
+              
+              <div class="photo-grid">
+                  <img src="gallery/Image_2025-29Yue_1.jpg" alt="Presentation Slide" style="cursor: pointer;" onclick="openLightbox(this)">
+                  <img src="gallery/Image_2025-29Yue_2.jpg" alt="Presentation Slide" style="cursor: pointer;" onclick="openLightbox(this)">
+                  <img src="gallery/Image_2025-29Yue_3.jpg" alt="Presentation Slide" style="cursor: pointer;" onclick="openLightbox(this)">            
+              </div>
+            </div>
+      </section>
+    </div>
+
+    <!-- 1. The Lightbox Pop-up Element (Hidden by default) -->
+    <div id="customLightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+    </div>
+
+    <!-- 2. CSS Styling for the Lightbox Pop-up -->
+    <style>
+    .lightbox-overlay {
+        display: none; 
+        position: fixed; 
+        z-index: 9999; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        background-color: rgba(0, 0, 0, 0.85); /* Dark background */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 4px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        animation: zoomIn 0.2s ease-in-out;
+    }
+
+    .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    @keyframes zoomIn {
+        from { transform: scale(0.9); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+    </style>
+
+    <!-- 3. JavaScript to control opening and closing -->
+    <script>
+    function openLightbox(element) {
+        const lightbox = document.getElementById("customLightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+        
+        lightboxImg.src = element.src; // Copy the clicked image URL
+        lightbox.style.display = "flex"; // Show the pop-up
+    }
+
+    function closeLightbox() {
+        document.getElementById("customLightbox").style.display = "none"; // Hide the pop-up
+    }
+    </script>
+
+
+
     <a href="index.html">[Main Page]</a>
   </div>
   </body>
