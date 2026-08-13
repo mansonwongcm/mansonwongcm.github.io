@@ -156,12 +156,14 @@
     /* Fixed Aspect Ratio Preview Area */
     .preview-box {
         width: 100%;
-        height: 180px; 
+        height: 180px;
         overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #f8fafc;
+        background-color: #f1f5f9;
+        font-size: 0.95rem;
+        color: #64748b;
     }
 
     .preview-box img {
@@ -227,12 +229,13 @@
         <p>just some random resources</p>
     </div>
 
-    <!-- Grid Container Layout -->
+    <!-- Grid Container Layout (Forces exactly 3 cards per row) -->
     <div class="resources-grid">
 
+        <!-- Row 1 - Card 1 (A1) -->
         <div class="paper-card">
             <div class="preview-box">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='400' height='250' viewBox='0 0 400 250'><rect width='100%' height='100%' fill='%23f1f5f9'/><text x='50%' y='50%' font-family='sans-serif' font-size='16' fill='%2394a3b8' text-anchor='middle'>%F0%9F%93%96 Paper Preview</text></svg>" alt="DOI Preview">
+                📖 SpeechProsody 2026 Preview
             </div>
             <div class="grid-button-group">
                 <a href="https://doi.org/10.21437/SpeechProsody.2026-32" target="_blank" class="grid-link">DOI LINK</a>
@@ -240,9 +243,10 @@
             </div>
         </div>
 
+        <!-- Row 1 - Card 2 (A2) -->
         <div class="paper-card">
             <div class="preview-box">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='400' height='250' viewBox='0 0 400 250'><rect width='100%' height='100%' fill='%23f1f5f9'/><text x='50%' y='50%' font-family='sans-serif' font-size='16' fill='%2394a3b8' text-anchor='middle'>%F0%9F%93%96 Paper Preview</text></svg>" alt="DOI Preview">
+                📖 Paper 2 Preview
             </div>
             <div class="grid-button-group">
                 <a href="https://doi.org/10.21437/SpeechProsody.2026-32" target="_blank" class="grid-link">DOI LINK</a>
@@ -250,9 +254,10 @@
             </div>
         </div>
 
+        <!-- Row 1 - Card 3 (A3) -->
         <div class="paper-card">
             <div class="preview-box">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='400' height='250' viewBox='0 0 400 250'><rect width='100%' height='100%' fill='%23f1f5f9'/><text x='50%' y='50%' font-family='sans-serif' font-size='16' fill='%2394a3b8' text-anchor='middle'>%F0%9F%93%96 Paper Preview</text></svg>" alt="DOI Preview">
+                📖 Paper 3 Preview
             </div>
             <div class="grid-button-group">
                 <a href="https://doi.org/10.21437/SpeechProsody.2026-32" target="_blank" class="grid-link">DOI LINK</a>
@@ -260,7 +265,10 @@
             </div>
         </div>
 
+        <!-- Row 2 will start automatically when you add a 4th card right here! -->
+
     </div>
+
 </div>
 
 </body>
