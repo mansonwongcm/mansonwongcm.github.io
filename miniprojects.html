@@ -14,128 +14,142 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manson WONG 王俊汶</title>
+  
+  <link rel="icon" type="image/png" href="icon.png">
+
   <style>
+    /* 1. Global Reset & Base Setup */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
     html {
         overflow-y: scroll;
     }
-  </style>    
-  <link rel="icon" type="image/png" href="icon.png">
-  <style>
-    /* Modern & Clean Setup */
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    }
+
     body {
-    background-color: #f8fafc;
-    color: #000000;
-    line-height: 1.7;
-    padding: 40px 20px;
-    }
-    
-    /* Container Card - EDITED: Expanded max-width to fit 3 items per row beautifully */
-    .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    padding: 40px;
-    }
-    
-    /* Header Section */
-    .profile-header {
-    text-align: center;
-    margin-bottom: 40px;
-    }
-    .profile-header h1 {
-    font-size: 2.0rem;
-    color: #000000;
-    margin-bottom: 8px;
-    }
-    .profile-header p {
-    font-size: 1.3rem;
-    color: #000000;
-    font-weight: 500;
-    }
-    /* Section Layout */
-    section {
-    margin-bottom: 35px;
-    }
-    h2 {
-    font-size: 1.5rem;
-    color: #000;
-    font-weight: bold;
-    border-bottom: 2px solid #000;
-    padding-bottom: 6px;
-    margin-bottom: 16px;
-    }
-    /* Item Lists Styling */
-    .item {
-    margin-bottom: 20px; 
-    }
-    /* Base size rule for all list item components */
-    .item-title, .item-meta, .item-desc {
-    font-size: 1rem; 
-    color: #000000;
-    }
-    .item-title {
-    font-weight: bold
-    }
-    .item-meta {
-    margin-bottom: 4px;
-    }
-    .item-desc {
-    margin-bottom: 8px;
-    }
-    /* Links & Buttons */
-    a {
-    color: #2563eb;
-    text-decoration: underline;
-    }
-    a:hover {
-    color: #1d4ed8;
-    }
-    .contact-links {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #e2e8f0;
-    }
-    .contact-links .btn {
-    text-decoration: none; 
-    }
-    .btn {
-    display: inline-block;
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin: 0 5px;
-    transition: all 0.2s ease;
-    }
-    .btn-primary {
-    background: #2563eb;
-    color: #ffffff;
-    }
-    .btn-primary:hover {
-    background: #1d4ed8;
-    }
-    .btn-secondary {
-    background: #f1f5f9;
-    color: #000000;
-    }
-    .btn-secondary:hover {
-    background: #e2e8f0;
+        background-color: #f8fafc;
+        color: #000000;
+        line-height: 1.7;
+        padding: 40px 20px;
     }
 
-    /* ==========================================================================
-       🆕 ADDED: Strict Grid-Table Layout Styles to Match Your Mockup Sketch
-       ========================================================================== */
-    
-    /* Strict 3 columns across matching the cell blocks in your layout diagram */
+    /* 2. Primary Layout Containers */
+    .container {
+        max-width: 1100px; /* Expanded max-width to fit 3 items per row beautifully */
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        padding: 40px;
+    }
+
+    section {
+        margin-bottom: 35px;
+    }
+
+    /* 3. Typography & Headers */
+    .profile-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .profile-header h1 {
+        font-size: 2.0rem;
+        color: #000000;
+        margin-bottom: 8px;
+    }
+
+    .profile-header p {
+        font-size: 1.3rem;
+        color: #000000;
+        font-weight: 500;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        color: #000000;
+        font-weight: bold;
+        border-bottom: 2px solid #000000;
+        padding-bottom: 6px;
+        margin-bottom: 16px;
+    }
+
+    /* 4. Text Item Lists Styling */
+    .item {
+        margin-bottom: 20px; 
+    }
+
+    .item-title, .item-meta, .item-desc {
+        font-size: 1rem; 
+        color: #000000;
+    }
+
+    .item-title {
+        font-weight: bold; /* Added missing semicolon here */
+    }
+
+    .item-meta {
+        margin-bottom: 4px;
+    }
+
+    .item-desc {
+        margin-bottom: 8px;
+    }
+
+    /* 5. Standard Global Links & Buttons */
+    a {
+        color: #2563eb;
+        text-decoration: underline;
+    }
+
+    a:hover {
+        color: #1d4ed8;
+    }
+
+    .contact-links {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #e2e8f0;
+    }
+
+    .contact-links .btn {
+        text-decoration: none; 
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 8px 18px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin: 0 5px;
+        transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+        background: #2563eb;
+        color: #ffffff;
+    }
+
+    .btn-primary:hover {
+        background: #1d4ed8;
+    }
+
+    .btn-secondary {
+        background: #f1f5f9;
+        color: #000000;
+    }
+
+    .btn-secondary:hover {
+        background: #e2e8f0;
+    }
+
+    /* 6. Strict Grid-Table Layout (3 Columns Across) */
     .resources-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -185,7 +199,7 @@
         background-color: #ffffff;
     }
 
-    /* Core link text styles matching the DOI LINK | POWERPOINT format */
+    /* Core link text styles matching DOI LINK | POWERPOINT format */
     .grid-link {
         font-size: 0.85rem;
         font-weight: bold;
@@ -193,24 +207,25 @@
         color: #000000 !important; /* Forces link text to remain black matching layout style */
         text-decoration: none !important; /* Clear out global line decorations */
     }
+
     .grid-link:hover {
         text-decoration: underline !important;
         color: #2563eb !important;
     }
 
-    /* Handles neat breakdown scaling when viewed on mobile phones */
+    /* 7. Responsive Media Queries for Mobile Screens */
     @media (max-width: 800px) {
         .resources-grid {
-            grid-template-columns: 1fr;
-            border-right: 2px solid #000000;
+        grid-template-columns: 1fr;
+        border-right: 2px solid #000000;
         }
         .paper-card {
-            border-right: none;
+        border-right: none;
         }
     }
   </style>
+
 </head>
-  
 
 <body>   
  

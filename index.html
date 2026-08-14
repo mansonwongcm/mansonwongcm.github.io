@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<thtml lang="en">
+<html lang="en">
 
   <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7B6F97CR8T"></script>
@@ -14,139 +14,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manson WONG 王俊汶</title>
-    <style>
-          html {
-              overflow-y: scroll;
-          }
-    </style>    
+
     <link rel="icon" type="image/png" href="icon.png">
     <style>
-      /* Modern & Clean Setup */
+      /* 1. Global Reset & Modern Setup */
       * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       }
+
+      html {
+        overflow-y: scroll;
+      }
+
       body {
-      background-color: #f8fafc;
-      color: #000000;
-      line-height: 1.7;
-      padding: 40px 20px;
+        background-color: #f8fafc;
+        color: #000000;
+        line-height: 1.7;
+        padding: 40px 20px;
       }
-      /* Container Card */
+
+      /* 2. Layout Containers */
       .container {
-      max-width: 750px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      padding: 40px;
+        max-width: 750px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        padding: 40px;
       }
-      /* Header Section */
-      .profile-header {
-      text-align: center;
-      margin-bottom: 40px;
-      }
-      .profile-header h1 {
-      font-size: 2.0rem;
-      color: #000000;
-      margin-bottom: 8px;
-      }
-      .profile-header p {
-      font-size: 1.3rem;
-      color: #000000;
-      font-weight: 500;
-      }
-      /* Section Layout */
+
       section {
-      margin-bottom: 35px;
+        margin-bottom: 35px;
       }
+
+      /* 3. Typography Elements */
+      .profile-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .profile-header h1 {
+        font-size: 2.0rem;
+        color: #000000;
+        margin-bottom: 8px;
+      }
+
+      .profile-header p {
+        font-size: 1.3rem;
+        color: #000000;
+        font-weight: 500;
+      }
+
       h2 {
-      font-size: 1.5rem;
-      color: #000;
-      font-weight: bold;
-      border-bottom: 2px solid #000;
-      padding-bottom: 6px;
-      margin-bottom: 16px;
+        font-size: 1.5rem;
+        color: #000000;
+        font-weight: bold;
+        border-bottom: 2px solid #000000;
+        padding-bottom: 6px;
+        margin-bottom: 16px;
       }
-      /* Item Lists Styling */
+
+      /* 4. Item Lists & Semantics */
       .item {
-      margin-bottom: 20px; /* Changed to exactly 20px */
+        margin-bottom: 20px;
       }
-      /* Base size rule for all list item components */
+
       .item-title, .item-meta, .item-desc {
-      font-size: 1rem; /* Forces matching sizes across all three elements */
-      color: #000000;
+        font-size: 1rem;
+        color: #000000;
       }
+
       .item-title {
-      font-weight: bold
+        font-weight: bold; /* Added missing semicolon here */
       }
+
       .item-meta {
-      margin-bottom: 4px;
+        margin-bottom: 4px;
       }
+
       .item-desc {
-      margin-bottom: 8px;
+        margin-bottom: 8px;
       }
-      /* Links & Buttons */
+
+      /* 5. General Links & Structural Buttons */
       a {
-      color: #2563eb;
-      text-decoration: underline;
+        color: #2563eb;
+        text-decoration: underline;
       }
+
       a:hover {
-      color: #1d4ed8;
+        color: #1d4ed8;
       }
+
       .contact-links {
-      text-align: center;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #e2e8f0;
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #e2e8f0;
       }
+
       .contact-links .btn {
-      text-decoration: none; 
+        text-decoration: none; 
       }
+
       .btn {
-      display: inline-block;
-      padding: 8px 18px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin: 0 5px;
-      transition: all 0.2s ease;
+        display: inline-block;
+        padding: 8px 18px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin: 0 5px;
+        transition: all 0.2s ease;
       }
+
       .btn-primary {
-      background: #2563eb;
-      color: #ffffff;
+        background: #2563eb;
+        color: #ffffff;
       }
+
       .btn-primary:hover {
-      background: #1d4ed8;
+        background: #1d4ed8;
       }
+
       .btn-secondary {
-      background: #f1f5f9;
-      color: #000000;
+        background: #f1f5f9;
+        color: #000000;
       }
+
       .btn-secondary:hover {
-      background: #e2e8f0;
+        background: #e2e8f0;
       }
-      .hide-past-five li:nth-child(n+6) {
-        display: none; 
-      }
-      /* Hide the actual checkbox completely */
+
+      /* 6. Recent Updates: Show More/Less Functionality */
       #update-toggle {
         display: none;
       }
 
-      /* By default, hide the 6th item and any item after it */
       .hide-past-five li:nth-child(n+6) {
         display: none;
       }
 
-      /* When the checkbox is checked, SHOW all hidden items */
       #update-toggle:checked ~ .hide-past-five li:nth-child(n+6) {
         display: list-item;
       }
 
-      /* Button Styling */
       .toggle-btn {
         display: inline-block;
         cursor: pointer;
@@ -157,10 +171,10 @@
         font-size: 0.95rem;
       }
 
-      /* Change button text when expanded */
       #update-toggle:checked ~ .toggle-btn::before {
         content: "Show Less";
       }
+
       #update-toggle:not(:checked) ~ .toggle-btn::before {
         content: "Show More";
       }      
