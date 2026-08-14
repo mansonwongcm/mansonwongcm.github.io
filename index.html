@@ -131,6 +131,39 @@
       .hide-past-five li:nth-child(n+6) {
         display: none; 
       }
+      /* Hide the actual checkbox completely */
+      #update-toggle {
+        display: none;
+      }
+
+      /* By default, hide the 6th item and any item after it */
+      .hide-past-five li:nth-child(n+6) {
+        display: none;
+      }
+
+      /* When the checkbox is checked, SHOW all hidden items */
+      #update-toggle:checked ~ .hide-past-five li:nth-child(n+6) {
+        display: list-item;
+      }
+
+      /* Button Styling */
+      .toggle-btn {
+        display: inline-block;
+        cursor: pointer;
+        color: #0066cc;
+        font-weight: bold;
+        text-decoration: underline;
+        margin-top: 5px;
+        font-size: 0.95rem;
+      }
+
+      /* Change button text when expanded */
+      #update-toggle:checked ~ .toggle-btn::before {
+        content: "Show Less";
+      }
+      #update-toggle:not(:checked) ~ .toggle-btn::before {
+        content: "Show More";
+      }      
     </style>
   </head>
 
@@ -158,18 +191,20 @@
     </header>
 
     <main style="padding: 20px; max-width: 800px; margin: auto;">
-      <h2>Recent Updates</h2>
-      <ul class="hide-past-five" style="padding-left: 20px; margin-bottom: 16px; line-height: 1.6;">
+      <h2>Recent Updates</h2>      
+      <input type="checkbox" id="update-toggle">
+      <ul class="hide-past-five" style="padding-left: 20px; margin-bottom: 12px; line-height: 1.6;">
         <li style="margin-bottom: 8px;">2026 Jun - Paper accepted to Interspeech 2026</li>
         <li style="margin-bottom: 8px;">2026 Jun - Presented at two LabPhon 20 satellite workshops (CSAA & CorpusPhon)</li>
-        <li style="margin-bottom: 8px;">2026 May - Presented at HISPhonCog 2026</li>
+        <li style="margin-bottom: 10px;">2026 May - Presented at HISPhonCog 2026</li>
         <li style="margin-bottom: 8px;">2026 Apr - Awarded the Hong Kong PhD Fellowship & CUHK Vice-Chancellor's HKPFS Scholarship</li>
         <li style="margin-bottom: 8px;">2026 Feb - Awarded the CUHK Vice-Chancellor's PhD Scholarship</li>
         <li style="margin-bottom: 8px;">2026 Feb - Awarded the CUHK Postgraduate Studentship</li>
         <li style="margin-bottom: 8px;">2025 Dec - Presented at Annual Research Forum of The Linguistic Society of Hong Kong</li>
         <li style="margin-bottom: 8px;">2025 Oct - Presented at International Conference on Yue Dialects</li>
       </ul>
-    </main>  
+      <label for="update-toggle" class="toggle-btn"></label>
+    </main>
 
     <main style="padding: 20px; max-width: 800px; margin: auto;">
       <h2>About Me</h2>
