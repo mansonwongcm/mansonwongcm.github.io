@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanghainese Interactive Dictionary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        h2 { color: #333; margin-bottom: 5px; }
+        .status {
+            font-size: 14px;
+            font-weight: bold;
+            color: #f59e0b;
+            margin-bottom: 20px;
+        }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        .display-options {
+            background-color: #fff;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .display-options label {
+            margin-right: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            font-size: 16px;
+            padding: 10px;
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+        #outputBox {
+            background-color: #fff;
+            min-height: 120px;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 18px;
+            margin-top: 15px;
+            white-space: pre-wrap;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Shanghainese Interactive Dictionary</h2>
+    <div id="loadStatus" class="status">Loading dictionary text file...</div>
+
+    <!-- Toggle Selector Controls Panel -->
+    <div class="display-options">
+        <span style="font-weight: bold; margin-right: 15px; color: #475569;">Display Mode:</span>
+        <label>
+            <input type="radio" name="viewMode" value="sideBySide" checked> Side-by-Side (漢[haon])
+        </label>
+        <label>
+            <input type="radio" name="viewMode" value="romanizationOnly"> Romanization Only (haon)
+        </label>
+    </div>
+
+    <label style="font-weight: bold; display: block; margin-bottom: 5px;">Type Chinese Characters:</label>
+    <textarea id="inputBox" placeholder="Type here... (e.g., 不爭個本)" disabled></textarea>
+
+    <label style="font-weight: bold; display: block; margin-top: 20px;">Result Output Window:</label>
+    <div id="outputBox"></div>
+
+    <script>
+        let dictionary = {};
+
+        // ==========================================
+        // AUTOMATIC BACKGROUND FILE LOADER (AJAX)
+        // ==========================================
+        window.addEventListener('DOMContentLoaded', () => {
+            fetch('wugniu_zaonhe.txt')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Could not find 'wugniu_zaonhe.txt' inside this folder.");
+                    }
+                    return response.text();
+                })
+                .then(data => parseDictionary(data))
+                .catch(err => {
+                    const statusDiv = document.getElementById('loadStatus');
+                    statusDiv.textContent = 'Error: ' + err.message + ". Ensure you are using 'Live Server' inside VS Code.";
+                    statusDiv.className = "status error";
+                });
+        });
+        // ==========================================
+        // DICTIONARY TEXT FILE PARSER LAYER
+        // ==========================================
+        function parseDictionary(fileContent) {
+            const lines = fileContent.split('\n');
+            let inDataSection = false;
+
+            for (let line of lines) {
+                line = line.trim();
+
+                if (line === "...") {
+                    inDataSection = true;
+                    continue;
+                }
+                if (!line || line.startsWith('#') || !inDataSection) {
+                    continue;
+                }
+
+                const parts = line.replace(/\t/g, ' ').split(' ').filter(p => p !== '');
+                
+                if (parts.length >= 2) {
+                    const char = parts.slice(0, 1).join('');
+                    
+                    // SMART FILTER: Takes the raw reading, ignores percentages and digits
+                    let rawReading = parts.slice(1, 2).join('');
+                    let cleanReading = rawReading.replace(/%/g, '').replace(/[0-9]/g, '').trim();
+
+                    if (!dictionary[char]) {
+                        dictionary[char] = [];
+                    }
+                    if (!dictionary[char].includes(cleanReading)) {
+                        dictionary[char].push(cleanReading);
+                    }
+                }
+            }
+
+            const statusDiv = document.getElementById('loadStatus');
+            statusDiv.textContent = 'Successfully loaded ' + Object.keys(dictionary).length + ' entries. Ready to type!';
+            statusDiv.className = "status success";
+            document.getElementById('inputBox').disabled = false;
+        }
+
+        // ==========================================
+        // REAL-TIME SEARCH TEXT INTERFACE LAYER
+        // ==========================================
+        function lookupText() {
+            const text = document.getElementById('inputBox').value;
+            const outputBox = document.getElementById('outputBox');
+            const selectedMode = document.querySelector('input[name="viewMode"]:checked').value;
+            let output = [];
+
+            for (let char of text) {
+                if (dictionary[char]) {
+                    const readings = dictionary[char].join('/');
+                    
+                    if (selectedMode === "sideBySide") {
+                        output.push(char + '[' + readings + ']');
+                    } else if (selectedMode === "romanizationOnly") {
+                        output.push(readings);
+                    }
+                } else {
+                    output.push(char); // Keeps line breaks and spaces intact
+                }
+            }
+            outputBox.textContent = output.join(' ');
+        }
+
+        // Hook event listeners to track user actions on the page
+        document.getElementById('inputBox').addEventListener('input', lookupText);
+        document.querySelectorAll('input[name="viewMode"]').forEach(radio => {
+            radio.addEventListener('change', lookupText);
+        });
+    </script>
+</body>
+</html>
