@@ -86,10 +86,10 @@
         // AUTOMATIC BACKGROUND FILE LOADER (AJAX)
         // ==========================================
         window.addEventListener('DOMContentLoaded', () => {
-            fetch('wugniu_zaonhe.txt')
+            fetch('wugniu_zaonhe_revised.txt')
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error("Could not find 'wugniu_zaonhe.txt' inside this folder.");
+                        throw new Error("Could not find 'wugniu_zaonhe_revised.txt' inside this folder.");
                     }
                     return response.text();
                 })

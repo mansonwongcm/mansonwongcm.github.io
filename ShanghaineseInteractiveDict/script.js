@@ -1,7 +1,7 @@
 let dictionary = {};
 
 // Load dictionary file
-fetch("wugniu_zaonhe.txt")
+fetch("wugniu_zaonhe_revised.txt")
     .then(response => response.text())
     .then(text => {
 

@@ -61,7 +61,7 @@ def convert_text():
 
 # --- Main App Execution Layer ---
 # Ensure this text name exactly matches your local text document file name
-TEXT_FILE = "wugniu_zaonhe.txt" 
+TEXT_FILE = "wugniu_zaonhe_revised.txt" 
 wu_dict = load_dictionary(TEXT_FILE)
 
 if wu_dict is None:
