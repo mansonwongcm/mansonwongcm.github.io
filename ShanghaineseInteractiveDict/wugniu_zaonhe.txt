@@ -1,28 +1,28 @@
-# Rime dictionary
-# encoding: utf-8
-#
-# wugniu_zaonhe - 吳語（上海）
-#
-# 碼表製作：
-#
-# - 吳飛得 <fededemarco@gmail.com>
-# - Shin Zoqchiuq <shinzoqchiuq@outlook.com>
-# - 神死慟瞑 <411325365@qq.com>
-# - 沪语角 <930702500@qq.com>
-#
-# 使用：
-#
-# - 上海閒話abc <tzyyiggnih@yahoo.com.cn>,
-#   吳語越音 <zhufya@mail.ustc.edu.cn> : (GPLv3)
-#   Rime 吳語輸入方案
-#   https://github.com/rime/rime-wugniu
-
----
-name: wugniu_zaonhe
-version: "2026.06.05"
-sort: by_weight
-use_preset_vocabulary: true
-...
+# Rime dictionary	
+# encoding: utf-8	
+#	
+# wugniu_zaonhe - 吳語（上海）	
+#	
+# 碼表製作：	
+#	
+# - 吳飛得 <fededemarco@gmail.com>	
+# - Shin Zoqchiuq <shinzoqchiuq@outlook.com>	
+# - 神死慟瞑 <411325365@qq.com>	
+# - 沪语角 <930702500@qq.com>	
+#	
+# 使用：	
+#	
+"# - 上海閒話abc <tzyyiggnih@yahoo.com.cn>,"	
+#   吳語越音 <zhufya@mail.ustc.edu.cn> : (GPLv3)	
+#   Rime 吳語輸入方案	
+#   https://github.com/rime/rime-wugniu	
+	
+---	
+name: wugniu_zaonhe	
+"version: ""2026.06.05"""	
+sort: by_weight	
+use_preset_vocabulary: true	
+...	
 
 髭	tsy
 齜	tsy
