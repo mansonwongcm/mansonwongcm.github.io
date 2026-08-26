@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Chinese Converter</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --background: #f9fafb;
+            --card-bg: #ffffff;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--background);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .container { 
+            width: 100%; 
+            max-width: 600px; 
+            flex: 1;
+        }
+        h1 { 
+            text-align: center; 
+            font-size: 28px; 
+            margin-bottom: 24px; 
+            font-weight: 700;
+        }
+        .search-box {
+            width: 100%; padding: 16px 20px; font-size: 18px;
+            border: 2px solid var(--border); border-radius: 12px;
+            box-sizing: border-box; outline: none; transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .search-box:focus { 
+            border-color: var(--primary); 
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); 
+        }
+        .status {
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 12px;
+            font-style: italic;
+            transition: color 0.3s;
+        }
+        .status.loaded {
+            color: #16a34a;
+            font-weight: 500;
+        }
+        .result-card {
+            background: var(--card-bg); border-radius: 16px; padding: 24px;
+            margin-top: 24px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            display: block; 
+        }
+        .output-row { padding: 16px 0; border-bottom: 1px solid var(--border); }
+        .output-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .output-row:first-child { padding-top: 0; }
+        .label { font-size: 12px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; letter-spacing: 0.05em; }
+        .value { font-size: 22px; font-weight: 600; color: var(--text-main); word-break: break-all; }
+        
+        footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            width: 100%;
+            max-width: 600px;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.6;
+        }
+        footer p {
+            margin: 0 0 12px 0;
+        }
+        footer a { color: var(--primary); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Chinese Romanization Converter</h1>
+    <input type="text" id="search" class="search-box" placeholder="Loading dictionary data..." autocomplete="off" disabled>
+    <div id="statusMessage" class="status">Reading dictionary.txt...</div>
+    
+    <div id="resultCard" class="result-card">
+        <div class="output-row"><div class="label">Jyutping</div><div id="outJyutping" class="value">—</div></div>
+        <div class="output-row"><div class="label">Simplified Chinese</div><div id="outSimplified" class="value">—</div></div>
+        <div class="output-row"><div class="label">Pinyin</div><div id="outPinyin" class="value">—</div></div>
+    </div>
+</div>
+
+<footer>
+    <p>
+        The dictionary data used in this application is sourced from CC-CEDICT and CC-Canto, with download and community information available at <a href="https://cantonese.org" target="_blank" rel="noopener noreferrer">cantonese.org</a> and the <a href="https://cc-cedict.org" target="_blank" rel="noopener noreferrer">CC-CEDICT Wiki</a>. This open-source data is distributed and made available under the <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 3.0 license</a>. The developer has made every reasonable effort to fully comply with all applicable licensing, attribution, and open-source requirements. If you believe that any content, attribution, or licensing rule has been inadvertently omitted or improperly addressed, please contact the repository maintainer immediately so that the issue can be reviewed and resolved promptly.
+    </p>
+</footer>
+
+<script>
+    let charJyutpingMap = {}, charSimplifiedMap = {}, charPinyinMap = {};
+    const searchInput = document.getElementById('search'), statusMessage = document.getElementById('statusMessage');
+    const outJ = document.getElementById('outJyutping'), outS = document.getElementById('outSimplified'), outP = document.getElementById('outPinyin');
+
+    fetch('dictionary.txt')
+        .then(r => r.arrayBuffer())
+        .then(buffer => {
+            const text = new TextDecoder('utf-8').decode(buffer);
+            text.split(/\r?\n/).forEach(row => {
+                if (!row.trim() || row.startsWith('#')) return;
+                const columns = row.split('\t');
+                if (columns.length >= 4) {
+                    const trad = columns[0].trim(), simp = columns[1].trim(), py = columns[2].trim(), jy = columns[3].trim();
+                    if(trad.length === 1 && !charJyutpingMap[trad]) {
+                        charJyutpingMap[trad] = jy;
+                        charSimplifiedMap[trad] = simp;
+                        charPinyinMap[trad] = py;
+                    }
+                }
+            });
+            statusMessage.classList.add('loaded');
+            statusMessage.textContent = `● System Ready: Traditional input only`;
+            searchInput.removeAttribute('disabled');
+            searchInput.placeholder = "Type Traditional Chinese...";
+        });
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim();
+        if (!query) {
+            outJ.textContent = outS.textContent = outP.textContent = '—';
+            return;
+        }
+        let j = [], s = [], p = [];
+        for (let char of query) {
+            j.push(charJyutpingMap[char] || `[${char}]`);
+            s.push(charSimplifiedMap[char] || char);
+            p.push(charPinyinMap[char] || `[${char}]`);
+        }
+        outJ.textContent = j.join(' ');
+        outS.textContent = s.join('');
+        outP.textContent = p.join(' ');
+    });
+</script>
+</body>
+</html>
