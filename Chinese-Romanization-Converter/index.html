@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinese Romanization Converter/</title>
+    <title>Interactive Chinese Converter</title>
     <style>
         :root {
             --primary: #4f46e5;
@@ -52,7 +52,6 @@
             color: var(--text-muted);
             margin-top: 12px;
             font-style: italic;
-            transition: color 0.3s;
         }
         .status.loaded {
             color: #16a34a;
@@ -81,9 +80,6 @@
             text-align: center;
             line-height: 1.6;
         }
-        footer p {
-            margin: 0 0 12px 0;
-        }
         footer a { color: var(--primary); text-decoration: none; }
         footer a:hover { text-decoration: underline; }
     </style>
@@ -109,43 +105,83 @@
 </footer>
 
 <script>
+    // Storage changed from basic strings to collect array matrices natively
     let charJyutpingMap = {}, charSimplifiedMap = {}, charPinyinMap = {};
     const searchInput = document.getElementById('search'), statusMessage = document.getElementById('statusMessage');
     const outJ = document.getElementById('outJyutping'), outS = document.getElementById('outSimplified'), outP = document.getElementById('outPinyin');
 
     fetch('dictionary.txt')
-        .then(r => r.arrayBuffer())
+        .then(r => {
+            if (!r.ok) throw new Error("File not found");
+            return r.arrayBuffer();
+        })
         .then(buffer => {
-            const text = new TextDecoder('utf-8').decode(buffer);
+            let decoder = new TextDecoder('utf-16le');
+            let text = decoder.decode(buffer);
+
+            if (text.includes('') || !text.includes('\t')) {
+                decoder = new TextDecoder('utf-8');
+                text = decoder.decode(buffer);
+            }
+
             text.split(/\r?\n/).forEach(row => {
                 if (!row.trim() || row.startsWith('#')) return;
                 const columns = row.split('\t');
                 if (columns.length >= 4) {
-                    const trad = columns[0].trim(), simp = columns[1].trim(), py = columns[2].trim(), jy = columns[3].trim();
-                    if(trad.length === 1 && !charJyutpingMap[trad]) {
-                        charJyutpingMap[trad] = jy;
-                        charSimplifiedMap[trad] = simp;
-                        charPinyinMap[trad] = py;
+                    const clean = item => item ? item.replace(/^["'\s/]+|["'\s/]+$/g, '').trim() : '';
+                    const trad = clean(columns[0]);
+                    const simp = clean(columns[1]);
+                    const py = clean(columns[2]);
+                    const jy = clean(columns[3]);
+
+                    // Only track single-character structural row entries matching constraints
+                    if (trad.length === 1) {
+                        // Initialize collection array wrappers if undefined
+                        if (!charJyutpingMap[trad]) charJyutpingMap[trad] = [];
+                        if (!charSimplifiedMap[trad]) charSimplifiedMap[trad] = [];
+                        if (!charPinyinMap[trad]) charPinyinMap[trad] = [];
+
+                        // Safely push unique tone configurations avoiding array clutter
+                        if (!charJyutpingMap[trad].includes(jy)) charJyutpingMap[trad].push(jy);
+                        if (!charSimplifiedMap[trad].includes(simp)) charSimplifiedMap[trad].push(simp);
+                        if (!charPinyinMap[trad].includes(py)) charPinyinMap[trad].push(py);
                     }
                 }
             });
             statusMessage.classList.add('loaded');
-            statusMessage.textContent = `● System Ready: Traditional input only`;
+            statusMessage.textContent = `● System Ready: Multi-pronunciation support active`;
             searchInput.removeAttribute('disabled');
             searchInput.placeholder = "Type Traditional Chinese...";
+        })
+        .catch(err => {
+            statusMessage.style.color = "#ef4444";
+            statusMessage.textContent = "Error loading dictionary.txt. Check your root project folder.";
+            console.error(err);
         });
+
     searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.trim();
+        const query = e.target.value.replace(/\s+/g, ''); 
         if (!query) {
             outJ.textContent = outS.textContent = outP.textContent = '—';
             return;
         }
         let j = [], s = [], p = [];
+        
         for (let char of query) {
-            j.push(charJyutpingMap[char] || `[${char}]`);
-            s.push(charSimplifiedMap[char] || char);
-            p.push(charPinyinMap[char] || `[${char}]`);
+            // Join matched alternative options using backslashes natively
+            if (charJyutpingMap[char]) {
+                j.push(charJyutpingMap[char].join('/'));
+                s.push(charSimplifiedMap[char].join('/'));
+                p.push(charPinyinMap[char].join('/'));
+            } else {
+                // Return character brackets raw if missing from text document
+                j.push(`[${char}]`);
+                s.push(char);
+                p.push(`[${char}]`);
+            }
         }
+        
+        // Output clean strings to your UI cards layout rows
         outJ.textContent = j.join(' ');
         outS.textContent = s.join('');
         outP.textContent = p.join(' ');
@@ -153,3 +189,4 @@
 </script>
 </body>
 </html>
+
